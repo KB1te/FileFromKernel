@@ -26,8 +26,8 @@ NTSTATUS DispatchCreate(PDRIVER_OBJECT pDriver, IRP* irp) {
 	UNICODE_STRING		path;
 	OBJECT_ATTRIBUTES	objAtr;
 	IO_STATUS_BLOCK		IoStatus;
-	PHANDLE				hFile;
-	NTSTATUS			status;
+	PHANDLE			hFile;
+	NTSTATUS		status;
 	RtlInitUnicodeString(&path, L"\\DosDevices\\C:\\teste.txt");
 	InitializeObjectAttributes(&objAtr, &path, OBJ_KERNEL_HANDLE | OBJ_CASE_INSENSITIVE, NULL, NULL);
 	status = ZwCreateFile(hFile, GENERIC_ALL, &objAtr, &IoStatus, NULL, pIOLoc->Parameters.Create.FileAttributes, pIOLoc->Parameters.Create.ShareAccess,FILE_CREATE, FILE_NON_DIRECTORY_FILE, NULL, pIOLoc->Parameters.Create.EaLength);
