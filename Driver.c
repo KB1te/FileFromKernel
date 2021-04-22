@@ -21,7 +21,7 @@ void DriverUnload(PDRIVER_OBJECT pDriver) {
 	UNREFERENCED_PARAMETER(pDriver);
 }
 
-NTSTATUS DispatchCreate(PDRIVER_OBJECT pDriver, IRP* irp) {
+NTSTATUS DispatchCreate(PDEVICE_OBJECT pDriver, IRP* irp) {
 	IO_STACK_LOCATION	*pIOLoc = IoGetCurrentIrpStackLocation(irp);
 	UNICODE_STRING		path;
 	OBJECT_ATTRIBUTES	objAtr;
